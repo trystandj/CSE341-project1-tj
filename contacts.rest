@@ -1,0 +1,16 @@
+### Test the home route
+GET http://localhost:3000/
+
+
+### Get all contacts
+GET http://localhost:3000/contacts
+
+
+### Get contact by ID
+GET http://localhost:3000/contacts/686705be975b266e00bfb544
+
+###
+
+### Test invalid contact ID (should return 404)
+GET http://localhost:3000/contacts/invalidid123
+
