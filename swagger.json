@@ -33,7 +33,7 @@
     "/contacts": {
       "get": {
         "tags": ["Contacts"],
-        "description": "Home page endpoint",
+        "description": "Retrieve all contacts endpoint",
         "produces": ["application/json"],
         "responses": {
           "200": {
@@ -48,7 +48,7 @@
     "/contacts/{id}": {
       "get": {
         "tags": ["Contacts"],
-        "description": "Home page endpoint",
+        "description": "Retrieve a contact by ID endpoint",
         "produces": ["application/json"],
         "parameters": [
           {
@@ -72,7 +72,7 @@
       },
       "put": {
         "tags": ["Contacts"],
-        "description": "Home page endpoint",
+        "description": "Update a contact by ID endpoint",
         "parameters": [
           {
             "name": "id",
@@ -117,34 +117,11 @@
           }
         }
       },
-      "delete": {
-        "tags": ["Contacts"],
-        "description": "Home page endpoint",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
+      
     "/contacts/": {
       "post": {
         "tags": ["Contacts"],
-        "description": "Home page endpoint",
+        "description": "Create a new contact endpoint",
         "parameters": [
           {
             "name": "body",
@@ -174,6 +151,30 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+      "delete": {
+        "tags": ["Contacts"],
+        "description": "Delete a contact by ID endpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
