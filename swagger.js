@@ -6,7 +6,7 @@ const doc = {
     title: "Contacts API",
     description: "API documentation for the Contacts application",
   },
-  host: "localhost:3000",
+  host: "localhost:https://cse341-project1-tj.onrender.com",
   schemes: ["http"],
   tags: [
     {
