@@ -11,7 +11,7 @@ router.use(
   "/",
   require("./contacts"),
   // #swagger.tags = ['Contacts']
-  // #swagger.description = 'Home page endpoint'
+  // #swagger.description = 'Contacts page endpoint'
 );
 
 router.use("/", require("./swagger"));
