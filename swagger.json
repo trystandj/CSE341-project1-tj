@@ -17,7 +17,7 @@
       "description": "Home page operations"
     }
   ],
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
     "/": {
       "get": {
