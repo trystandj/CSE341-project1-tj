@@ -5,7 +5,7 @@
     "description": "API documentation for the Contacts application",
     "version": "1.0.0"
   },
-  "host": "https://cse341-project1-tj.onrender.com",
+  "host": "cse341-project1-tj.onrender.com",
   "basePath": "/",
   "tags": [
     {
