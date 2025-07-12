@@ -7,16 +7,34 @@
   },
   "host": "localhost:3000",
   "basePath": "/",
-  "schemes": [
-    "http"
+  "tags": [
+    {
+      "name": "Contacts",
+      "description": "Operations related to contacts"
+    },
+    {
+      "name": "Home",
+      "description": "Home page operations"
+    }
   ],
+  "schemes": ["http"],
   "paths": {
+    "/": {
+      "get": {
+        "tags": ["Home"],
+        "description": "Home page endpoint",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/contacts": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Contacts"],
+        "description": "Home page endpoint",
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -29,10 +47,9 @@
     },
     "/contacts/{id}": {
       "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "tags": ["Contacts"],
+        "description": "Home page endpoint",
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -50,6 +67,126 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Contacts"],
+        "description": "Home page endpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "favoriteColor": {
+                  "example": "any"
+                },
+                "birthday": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Contacts"],
+        "description": "Home page endpoint",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/contacts/": {
+      "post": {
+        "tags": ["Contacts"],
+        "description": "Home page endpoint",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "favoriteColor": {
+                  "example": "any"
+                },
+                "birthday": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }

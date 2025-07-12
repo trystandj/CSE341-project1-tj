@@ -1,16 +1,27 @@
-const swaggerAutogen = require('swagger-autogen')();
+/* eslint-disable no-undef */
+const swaggerAutogen = require("swagger-autogen")();
 
 const doc = {
-    info: {
-        title: 'Contacts API',
-        description: 'API documentation for the Contacts application',
+  info: {
+    title: "Contacts API",
+    description: "API documentation for the Contacts application",
+  },
+  host: "localhost:3000",
+  schemes: ["http"],
+  tags: [
+    {
+      name: "Contacts",
+      description: "Operations related to contacts",
     },
-    host: 'localhost:3000',
-    schemes: ['http'],
+    {
+      name: "Home",
+      description: "Home page operations",
+    },
+  ],
 };
 
-const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/contacts.js'];
+const outputFile = "./swagger.json";
+const endpointsFiles = ["./routes/index.js"];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
 
