@@ -29,6 +29,10 @@ app.use(express.json());
 
 app.use("/", require("./routes"));
 
+process.on("uncaughtException", (err, origin) => {
+  console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+});
+
 mongodb.initDb((err) => {
   if (err) {
     console.error(err);
@@ -38,3 +42,4 @@ mongodb.initDb((err) => {
     });
   }
 });
+

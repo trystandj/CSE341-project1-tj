@@ -3,13 +3,19 @@
 const mongodb = require("../data/database");
 const { ObjectId } = require("mongodb");
 
-const getAllcontacts = async (req, res, next) => {
+const getAllContacts = async (req, res, next) => {
   try {
     const result = await mongodb
       .getDb()
       .collection("contacts")
       .find()
-      .toArray();
+      .toArray((err, data) => {
+        if (err) {
+          res.status(500).json({ message: "Error fetching contacts", error: err });
+        } else {
+          return data;
+        }
+      });
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(result);
   } catch (err) {
@@ -116,7 +122,7 @@ const deleteContact = async (req, res, next) => {
   }
 };
 module.exports = {
-  getAllcontacts,
+  getAllContacts,
   getcontactById,
   createContact,
   updateContact,

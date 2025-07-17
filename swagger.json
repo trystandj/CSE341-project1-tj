@@ -5,7 +5,7 @@
     "description": "API documentation for the Contacts application",
     "version": "1.0.0"
   },
-  "host": "cse341-project1-tj.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "tags": [
     {
@@ -17,11 +17,15 @@
       "description": "Home page operations"
     }
   ],
-  "schemes": ["https"],
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/": {
       "get": {
-        "tags": ["Home"],
+        "tags": [
+          "Home"
+        ],
         "description": "Home page endpoint",
         "responses": {
           "200": {
@@ -32,24 +36,26 @@
     },
     "/contacts": {
       "get": {
-        "tags": ["Contacts"],
-        "description": "Retrieve all contacts endpoint",
-        "produces": ["application/json"],
+        "tags": [
+          "Contacts"
+        ],
+        "description": "Contacts page endpoint",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "default": {
+            "description": ""
           }
         }
       }
     },
     "/contacts/{id}": {
       "get": {
-        "tags": ["Contacts"],
-        "description": "Retrieve a contact by ID endpoint",
-        "produces": ["application/json"],
+        "tags": [
+          "Contacts"
+        ],
+        "description": "Contacts page endpoint",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -71,8 +77,10 @@
         }
       },
       "put": {
-        "tags": ["Contacts"],
-        "description": "Update a contact by ID endpoint",
+        "tags": [
+          "Contacts"
+        ],
+        "description": "Contacts page endpoint",
         "parameters": [
           {
             "name": "id",
@@ -112,14 +120,19 @@
           "404": {
             "description": "Not Found"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       },
       "delete": {
-        "tags": ["Contacts"],
-        "description": "Delete a contact by ID endpoint",
+        "tags": [
+          "Contacts"
+        ],
+        "description": "Contacts page endpoint",
         "parameters": [
           {
             "name": "id",
@@ -143,8 +156,10 @@
     },
     "/contacts/": {
       "post": {
-        "tags": ["Contacts"],
-        "description": "Create a new contact endpoint",
+        "tags": [
+          "Contacts"
+        ],
+        "description": "Contacts page endpoint",
         "parameters": [
           {
             "name": "body",
@@ -175,13 +190,24 @@
           "201": {
             "description": "Created"
           },
+          "412": {
+            "description": "Precondition Failed"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       }
-    }
-    
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
     }
   }
-
+}
